@@ -10,7 +10,7 @@ import java.util.List;
 
 
 public interface CustomerDAO {
-    public List<Customer> getCustomers();
-    public void saveCustomer(Customer customer);
-    public boolean loginCustomer(Customer customer);
+    List<Customer> getCustomers();
+    void saveCustomer(Customer customer);
+    boolean loginCustomer(Customer customer);
 }

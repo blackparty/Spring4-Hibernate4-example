@@ -39,8 +39,14 @@ public class CustomerDAOImpl implements CustomerDAO{
 
     @Override
     public boolean loginCustomer(Customer customer) {
-        
-        return false;
+        Session session = sessionFactory.getCurrentSession();
+        Query theQuery = session.createQuery("from Customer customer where customer.username =:name and customer.password =:pass");
+        theQuery.setString("name",customer.getUsername());
+        theQuery.setString("pass",customer.getPassword());
+        if(theQuery.list().isEmpty()){
+            return false;
+        }
+        return true;
     }
 
 }
